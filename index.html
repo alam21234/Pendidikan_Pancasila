@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatif Tengah Semester Pendidikan Pancasila - SMA Negeri 1 Bangorejo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background: linear-gradient(to bottom, #f9f9f9, #fff);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #b30000, #ff0000);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .school-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .school-logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        .class-nav {
+            background: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .class-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .class-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #555;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .class-btn.active {
+            background: linear-gradient(to right, #b30000, #ff0000);
+            color: white;
+            box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3);
+        }
+        
+        .class-btn:hover:not(.active) {
+            background: #e0e0e0;
+        }
+        
+        /* Timer */
+        .timer-container {
+            background: #fff5f5;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 300px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(179, 0, 0, 0.1);
+        }
+        
+        .timer-title {
+            font-size: 1.2rem;
+            color: #b30000;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .timer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b30000;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .timer-warning {
+            font-size: 0.9rem;
+            color: #ff6600;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Exam Button */
+        .exam-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .exam-button {
+            background: linear-gradient(to right, #b30000, #ff0000);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(179, 0, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .exam-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(179, 0, 0, 0.4);
+        }
+        
+        .exam-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Content Sections */
+        .exam-content {
+            padding: 3rem 0;
+        }
+        
+        .class-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .class-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #b30000;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #b30000, #ff0000);
+        }
+        
+        .iframe-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .iframe-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+        
+        .notice {
+            background: #f9f9f9;
+            border-left: 4px solid #b30000;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 4px;
+        }
+        
+        .notice h3 {
+            color: #b30000;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #b30000;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #b30000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #555;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .class-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .class-btn {
+                width: 80%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .iframe-container iframe {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .iframe-container iframe {
+                height: 400px;
+            }
+            
+            .timer {
+                font-size: 1.5rem;
+            }
+            
+            .exam-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-decoration"></div>
+        <div class="container header-content">
+            <div class="school-logo">
+                <img src="https://i.ibb.co.com/mVgMJmDw/SMAN1-Bangorejo-emblem.png" alt="Logo SMA Negeri 1 Bangorejo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2IzMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI2IzMDAwMCIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTUExPC90ZXh0Pjwvc3ZnPg=='">
+            </div>
+            <h1>Sumatif Tengah Semester Ganjil 2024/2025</h1>
+            <p class="subtitle">Mata Pelajaran Pendidikan Pancasila - SMA Negeri 1 Bangorejo</p>
+        </div>
+    </header>
+    
+    <div class="class-nav">
+        <div class="container">
+            <div class="class-buttons">
+                <button class="class-btn active" onclick="showClass('class-x')">Kelas X</button>
+                <button class="class-btn" onclick="showClass('class-xi')">Kelas XI</button>
+            </div>
+        </div>
+    </div>
+    
+    <main class="container exam-content">
+        <div id="class-x" class="class-section active">
+            <h2 class="section-title">Soal Sumatif Kelas X</h2>
+            
+            <div class="timer-container">
+                <div class="timer-title">Waktu Tersisa:</div>
+                <div class="timer" id="timer-x">01:00</div>
+                <div class="timer-warning">Formulir akan terkirim otomatis ketika waktu habis</div>
+            </div>
+            
+            <div class="exam-button-container">
+                <button class="exam-button" onclick="startExam('x')">
+                    <i class="fas fa-play-circle"></i> Mulai Ujian
+                </button>
+            </div>
+            
+            <div class="notice">
+                <h3>Petunjuk Pengerjaan</h3>
+                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 1 menit (simulasi). Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai.</p>
+            </div>
+            
+            <div class="iframe-container">
+                <iframe id="form-iframe-x" style="display:none;" src="about:blank"></iframe>
+                <div id="form-placeholder-x" style="text-align:center; padding: 40px 20px;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 48px; color: #b30000; margin-bottom: 20px;"></i>
+                    <h3 style="color: #b30000;">Klik tombol "Mulai Ujian" untuk memulai</h3>
+                    <p>Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="class-xi" class="class-section">
+            <h2 class="section-title">Soal Sumatif Kelas XI</h2>
+            
+            <div class="timer-container">
+                <div class="timer-title">Waktu Tersisa:</div>
+                <div class="timer" id="timer-xi">01:00</div>
+                <div class="timer-warning">Formulir akan terkirim otomatis ketika waktu habis</div>
+            </div>
+            
+            <div class="exam-button-container">
+                <button class="exam-button" onclick="startExam('xi')">
+                    <i class="fas fa-play-circle"></i> Mulai Ujian
+                </button>
+            </div>
+            
+            <div class="notice">
+                <h3>Petunjuk Pengerjaan</h3>
+                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 1 menit (simulasi). Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai.</p>
+            </div>
+            
+            <div class="iframe-container">
+                <iframe id="form-iframe-xi" style="display:none;" src="about:blank"></iframe>
+                <div id="form-placeholder-xi" style="text-align:center; padding: 40px 20px;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 48px; color: #b30000; margin-bottom: 20px;"></i>
+                    <h3 style="color: #b30000;">Klik tombol "Mulai Ujian" untuk memulai</h3>
+                    <p>Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Sekolah</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jln. Bhayangkara 67 Kebondalem - Bangorejo, Banyuwangi, Jawa Timur, Indonesia 68487</p>
+                        <p><i class="fas fa-phone"></i> (0333) 713297</p>
+                        <p><i class="fas fa-envelope"></i> smanegeri1_bangorejo@schoolmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tentang Kami</h3>
+                    <p>SMA Negeri 1 Bangorejo adalah institusi pendidikan yang berkomitmen untuk mencetak generasi penerus bangsa yang berkarakter Pancasila, cerdas, dan berbudaya.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Pendidikan Pancasila</h3>
+                    <p>Mata pelajaran yang membentuk karakter siswa berdasarkan nilai-nilai Pancasila sebagai dasar negara dan pandangan hidup bangsa Indonesia.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 SMA Negeri 1 Bangorejo. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables untuk timer
+        let timerIntervalX, timerIntervalXI;
+        let timeLeftX = 60; // 1 menit dalam detik
+        let timeLeftXI = 60; // 1 menit dalam detik
+        let examStartedX = false;
+        let examStartedXI = false;
+        
+        // URL formulir
+        const formUrlX = "https://forms.gle/jTQTBUmkcUqrZisW7";
+        const formUrlXI = "https://forms.gle/MHvhDmARCarpvcLU8";
+        
+        // Fungsi untuk menampilkan kelas yang dipilih
+        function showClass(className) {
+            // Sembunyikan semua section
+            document.querySelectorAll('.class-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Tampilkan section yang dipilih
+            document.getElementById(className).classList.add('active');
+            
+            // Update tombol aktif
+            document.querySelectorAll('.class-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+        }
+        
+        // Fungsi untuk memulai ujian
+        function startExam(classType) {
+            if (classType === 'x' && !examStartedX) {
+                // Load formulir Kelas X
+                document.getElementById('form-iframe-x').src = formUrlX;
+                document.getElementById('form-iframe-x').style.display = 'block';
+                document.getElementById('form-placeholder-x').style.display = 'none';
+                
+                // Mulai timer
+                startTimer('x');
+                examStartedX = true;
+            } 
+            else if (classType === 'xi' && !examStartedXI) {
+                // Load formulir Kelas XI
+                document.getElementById('form-iframe-xi').src = formUrlXI;
+                document.getElementById('form-iframe-xi').style.display = 'block';
+                document.getElementById('form-placeholder-xi').style.display = 'none';
+                
+                // Mulai timer
+                startTimer('xi');
+                examStartedXI = true;
+            }
+        }
+        
+        // Fungsi untuk memulai timer
+        function startTimer(classType) {
+            // Hentikan timer sebelumnya jika ada
+            if (classType === 'x' && timerIntervalX) clearInterval(timerIntervalX);
+            if (classType === 'xi' && timerIntervalXI) clearInterval(timerIntervalXI);
+            
+            // Set waktu awal
+            let timeLeft = classType === 'x' ? timeLeftX : timeLeftXI;
+            updateTimerDisplay(classType, timeLeft);
+            
+            // Buat interval timer
+            const timerInterval = setInterval(() => {
+                timeLeft--;
+                
+                // Update waktu yang tersisa
+                if (classType === 'x') {
+                    timeLeftX = timeLeft;
+                } else {
+                    timeLeftXI = timeLeft;
+                }
+                
+                // Update tampilan
+                updateTimerDisplay(classType, timeLeft);
+                
+                // Jika waktu habis
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert(`Waktu pengerjaan untuk Kelas ${classType.toUpperCase()} telah habis! Formulir akan dikirim.`);
+                    // Di sini bisa ditambahkan kode untuk mengirim formulir otomatis
+                    // Namun karena iframe dari domain berbeda, kita tidak bisa mengontrolnya secara langsung
+                }
+            }, 1000);
+            
+            // Simpan interval ID
+            if (classType === 'x') {
+                timerIntervalX = timerInterval;
+            } else {
+                timerIntervalXI = timerInterval;
+            }
+        }
+        
+        // Fungsi untuk update tampilan timer
+        function updateTimerDisplay(classType, timeLeft) {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const timerElement = document.getElementById(`timer-${classType}`);
+            
+            if (timerElement) {
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                // Ubah warna menjadi merah ketika waktu hampir habis
+                if (timeLeft <= 10) {
+                    timerElement.style.color = '#ff0000';
+                } else {
+                    timerElement.style.color = '#b30000';
+                }
+            }
+        }
+        
+        // Timer presisi menggunakan performance.now() untuk menghindari drift
+        function startPreciseTimer(classType) {
+            let startTime = performance.now();
+            let expected = startTime + 1000; // Expect first tick after 1 second
+            let timeLeft = classType === 'x' ? timeLeftX : timeLeftXI;
+            
+            const timerStep = () => {
+                const now = performance.now();
+                const drift = now - expected;
+                
+                if (drift > 1000) {
+                    // If drift is too large, adjust
+                    expected = now;
+                }
+                
+                timeLeft--;
+                
+                // Update waktu yang tersisa
+                if (classType === 'x') {
+                    timeLeftX = timeLeft;
+                } else {
+                    timeLeftXI = timeLeft;
+                }
+                
+                // Update tampilan
+                updateTimerDisplay(classType, timeLeft);
+                
+                // Jika waktu habis
+                if (timeLeft <= 0) {
+                    if (classType === 'x') {
+                        clearInterval(timerIntervalX);
+                    } else {
+                        clearInterval(timerIntervalXI);
+                    }
+                    alert(`Waktu pengerjaan untuk Kelas ${classType.toUpperCase()} telah habis! Formulir akan dikirim.`);
+                    return;
+                }
+                
+                expected += 1000;
+                if (classType === 'x') {
+                    timerIntervalX = setTimeout(timerStep, Math.max(0, 1000 - drift));
+                } else {
+                    timerIntervalXI = setTimeout(timerStep, Math.max(0, 1000 - drift));
+                }
+            };
+            
+            if (classType === 'x') {
+                timerIntervalX = setTimeout(timerStep, 1000);
+            } else {
+                timerIntervalXI = setTimeout(timerStep, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
