@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatif Tengah Semester Pendidikan Pancasila - SMA Negeri 1 Bangorejo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,35 +12,56 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        :root {
+            --primary-red: #b30000;
+            --secondary-red: #ff0000;
+            --gold: #ffd700;
+            --cream: #fff5e6;
+            --dark-red: #8b0000;
+            --light-gold: #fff0b3;
+        }
+        
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
-            background: linear-gradient(135deg, #f8f4ec 0%, #e8d8c5 50%, #d6c8b8 100%);
-            line-height: 1.7;
+            background: linear-gradient(to bottom, #f9f9f9, var(--cream));
+            line-height: 1.6;
+            position: relative;
             overflow-x: hidden;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23e0d0c0' d='M10,10 L90,10 L90,90 L10,90 Z M20,20 L80,20 L80,80 L20,80 Z M30,30 L70,30 L70,70 L30,70 Z' stroke='%23b38a6a' stroke-width='0.5'/%3E%3C/svg%3E");
-            background-size: 200px;
         }
-
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0px, transparent 40px),
+                radial-gradient(circle at 80% 70%, rgba(179, 0, 0, 0.1) 0px, transparent 40px);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #7b3f00, #9c4a00, #6b2a00);
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
-            padding: 3rem 0;
+            padding: 3rem 0 2.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(107, 42, 0, 0.2);
-            border-bottom: 3px solid #8b5e3c;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
-
+        
         .header-content {
             position: relative;
             z-index: 2;
@@ -48,440 +69,370 @@
             flex-direction: column;
             align-items: center;
         }
-
+        
         .school-logo {
             width: 120px;
             height: 120px;
             margin-bottom: 1.5rem;
             border-radius: 50%;
-            background: #f8f4ec;
-            padding: 15px;
+            background: linear-gradient(45deg, var(--gold), white);
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 2px solid #b38a6a;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 2px solid white;
+            transition: transform 0.5s ease;
         }
-
-        .school-logo::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 1px dashed #b38a6a;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: pulse 3s infinite;
+        
+        .school-logo:hover {
+            transform: scale(1.05) rotate(5deg);
         }
-
+        
         .school-logo img {
             width: 90px;
             height: 90px;
             object-fit: contain;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            border-radius: 50%;
         }
-
+        
         .header-decoration {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.08;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='%23b38a6a' d='M20,20 Q50,5 80,20 T140,20 T180,60 T160,100 T120,120 T80,100 T40,120 T20,160 T30,200 L170,200 C180,180 190,160 180,140 C170,120 150,100 130,100 C110,100 90,120 70,120 C50,120 30,100 20,80 C10,60 20,40 40,40 C60,40 80,60 100,60 C120,60 140,40 160,40 C180,40 190,60 180,80 C170,100 150,120 130,120 C110,120 90,100 70,100 C50,100 30,120 20,140 C10,160 20,180 40,180 C60,180 80,160 100,160 C120,160 140,180 160,180 C180,180 190,160 180,140 C170,120 150,100 130,100 C110,100 90,120 70,120 C50,120 30,100 20,80 Z'/%3E%3C/svg%3E");
-            background-size: cover;
-            pointer-events: none;
+            opacity: 0.1;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E"),
+                radial-gradient(circle at center, var(--gold) 0%, transparent 70%);
+            background-size: cover, 200% 200%;
+            background-position: bottom center, center;
         }
-
+        
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            color: #fff;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 20px rgba(255,215,0,0.2);
-            position: relative;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, var(--gold), white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(to right, #ffd700, #b38a6a, #ffd700);
-            border-radius: 2px;
-            box-shadow: 0 2px 6px rgba(255,215,0,0.4);
-        }
-
+        
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 300;
             max-width: 800px;
             margin: 0 auto;
-            color: #f0e6d3;
-            font-style: italic;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            color: rgba(255, 255, 255, 0.9);
         }
-
+        
         /* Navigation */
         .class-nav {
-            background: linear-gradient(to right, #f8f4ec, #e8d8c5);
+            background: white;
             padding: 1.8rem 0;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(139, 94, 60, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             position: relative;
-            border-top: 1px solid #d6c8b8;
-            border-bottom: 1px solid #d6c8b8;
         }
-
+        
+        .class-nav::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary-red), transparent);
+        }
+        
         .class-buttons {
             display: flex;
             justify-content: center;
             gap: 25px;
-            flex-wrap: wrap;
         }
-
+        
         .class-btn {
-            background: #f0e6d3;
+            background: #f5f5f5;
             border: none;
-            padding: 14px 40px;
+            padding: 15px 35px;
             font-size: 1.2rem;
-            border-radius: 60px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            color: #7b3f00;
-            box-shadow: 0 4px 12px rgba(139, 94, 60, 0.1);
+            transition: all 0.4s ease;
+            font-weight: 500;
+            color: #555;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
-            min-width: 160px;
         }
-
+        
         .class-btn::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
-            transition: 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
         }
-
+        
         .class-btn:hover::before {
             left: 100%;
         }
-
+        
         .class-btn.active {
-            background: linear-gradient(135deg, #8b5e3c, #7b3f00);
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(139, 94, 60, 0.3);
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            color: white;
+            box-shadow: 0 6px 15px rgba(179, 0, 0, 0.3);
             transform: translateY(-3px);
         }
-
-        .class-btn.active::before {
-            display: none;
+        
+        .class-btn:hover:not(.active) {
+            background: #e8e8e8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-
+        
         /* Timer */
         .timer-container {
-            background: #f8f4ec;
-            border: 2px solid #b38a6a;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #fff, var(--cream));
+            border: 2px solid var(--gold);
+            border-radius: 16px;
             padding: 20px;
             max-width: 320px;
             margin: 25px auto;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(139, 94, 60, 0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
-
+        
         .timer-container::before {
-            content: '';
+            content: "";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
-            animation: rotate 15s linear infinite;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red), var(--primary-red));
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.1;
         }
-
+        
         .timer-title {
             font-size: 1.3rem;
-            color: #7b3f00;
+            color: var(--dark-red);
             margin-bottom: 12px;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
-
+        
         .timer {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #7b3f00;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-red);
             font-family: 'Playfair Display', serif;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
-
+        
         .timer-warning {
-            font-size: 0.9rem;
-            color: #9c4a00;
+            font-size: 0.95rem;
+            color: var(--primary-red);
             margin-top: 12px;
             font-style: italic;
-            font-weight: 400;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
         }
-
+        
         /* Exam Button */
         .exam-button-container {
             text-align: center;
-            margin: 40px 0;
+            margin: 35px 0;
         }
-
+        
         .exam-button {
-            background: linear-gradient(135deg, #8b5e3c, #7b3f00);
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
             border: none;
-            padding: 18px 50px;
+            padding: 18px 45px;
             font-size: 1.3rem;
-            border-radius: 60px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(139, 94, 60, 0.3);
+            transition: all 0.4s ease;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(179, 0, 0, 0.3);
             display: inline-flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             position: relative;
             overflow: hidden;
-            border: 1px solid #b38a6a;
         }
-
+        
         .exam-button::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
-            transition: 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
         }
-
+        
         .exam-button:hover::before {
             left: 100%;
         }
-
+        
         .exam-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 94, 60, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(179, 0, 0, 0.4);
         }
-
+        
         .exam-button:active {
-            transform: translateY(0);
+            transform: translateY(1px);
         }
-
-        .exam-button i {
-            font-size: 1.5rem;
-            color: #ffd700;
-        }
-
+        
         /* Content Sections */
         .exam-content {
-            padding: 5rem 0;
-            position: relative;
+            padding: 3.5rem 0;
         }
-
+        
         .class-section {
             display: none;
-            animation: fadeIn 0.6s ease-out;
-            backdrop-filter: blur(5px);
-            background: rgba(248, 244, 236, 0.8);
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 0 auto;
-            max-width: 900px;
-            box-shadow: 0 15px 50px rgba(139, 94, 60, 0.08);
-            border: 1px solid #e0d0c0;
+            animation: fadeIn 0.7s ease;
         }
-
+        
         .class-section.active {
             display: block;
         }
-
+        
         .section-title {
             text-align: center;
             margin-bottom: 2.5rem;
-            color: #7b3f00;
+            color: var(--dark-red);
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            font-weight: 700;
             position: relative;
-            padding-bottom: 20px;
-            letter-spacing: -0.5px;
+            padding-bottom: 15px;
         }
-
+        
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
+            width: 150px;
             height: 4px;
-            background: linear-gradient(to right, #ffd700, #8b5e3c, #ffd700);
+            background: linear-gradient(to right, var(--primary-red), var(--gold), var(--primary-red));
             border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(255,215,0,0.3);
         }
-
+        
         .iframe-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(139, 94, 60, 0.15);
-            border: 1px solid #d6c8b8;
-            position: relative;
-            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+            background: white;
+            transition: transform 0.4s ease;
         }
-
+        
+        .iframe-container:hover {
+            transform: translateY(-5px);
+        }
+        
         .iframe-container iframe {
             width: 100%;
-            height: 600px;
+            height: 650px;
             border: none;
             display: block;
-            transition: opacity 0.3s ease;
         }
-
-        .iframe-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,215,0,0.05) 50%, transparent 70%);
-            background-size: 400% 400%;
-            animation: shimmer 3s infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .form-placeholder {
-            text-align: center;
-            padding: 60px 30px;
-            color: #7b3f00;
-            position: relative;
-            z-index: 2;
-        }
-
-        .form-placeholder i {
-            font-size: 56px;
-            color: #b38a6a;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        .form-placeholder h3 {
-            color: #7b3f00;
-            margin-bottom: 12px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-        }
-
+        
         .notice {
-            background: #fdfaf5;
-            border-left: 5px solid #8b5e3c;
+            background: linear-gradient(to right, transparent, var(--light-gold), transparent);
+            border: 1px solid var(--gold);
             padding: 2rem;
-            margin: 3rem auto;
-            max-width: 800px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(139, 94, 60, 0.08);
+            margin: 2.5rem auto;
+            max-width: 850px;
+            border-radius: 12px;
+            text-align: center;
             position: relative;
-            border: 1px solid #e8d8c5;
         }
-
+        
         .notice::before {
-            content: "●";
+            content: "";
             position: absolute;
-            top: 15px;
-            left: -12px;
-            font-size: 1.2rem;
-            color: #b38a6a;
-            font-weight: bold;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            pointer-events: none;
         }
-
+        
         .notice h3 {
-            color: #7b3f00;
-            margin-bottom: 0.8rem;
+            color: var(--dark-red);
+            margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
         }
-
+        
         .notice p {
-            color: #5d4a3c;
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
-
+        
         /* Footer */
         footer {
-            background: linear-gradient(180deg, #7b3f00, #5a2d00);
-            color: #f8f4ec;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            color: white;
             padding: 4rem 0 2rem;
             margin-top: 4rem;
             position: relative;
-            overflow: hidden;
         }
-
+        
         footer::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100'%3E%3Cpath fill='%238b5e3c' d='M0,100 L1200,100 L1200,0 L0,0 Z M0,80 L200,40 L400,80 L600,20 L800,80 L1000,40 L1200,80 Z'/%3E%3C/svg%3E") repeat-x;
-            opacity: 0.3;
-            bottom: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-red), var(--gold), var(--primary-red));
         }
-
+        
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 40px;
             margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
         }
-
+        
         .footer-section {
             flex: 1;
             min-width: 250px;
-            padding: 1rem;
         }
-
+        
         .footer-section h3 {
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 12px;
             font-family: 'Playfair Display', serif;
-            color: #ffd700;
-            letter-spacing: -0.5px;
         }
-
+        
         .footer-section h3::after {
             content: '';
             position: absolute;
@@ -489,102 +440,125 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(to right, #ffd700, #b38a6a);
+            background: var(--gold);
             border-radius: 2px;
         }
-
+        
         .contact-info p {
             margin-bottom: 1rem;
             display: flex;
-            align-items: flex-start;
-            color: #f0e6d3;
-            font-size: 1rem;
+            align-items: center;
         }
-
+        
         .contact-info i {
             margin-right: 12px;
-            color: #ffd700;
-            font-size: 1.1rem;
-            margin-top: 2px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 25px;
         }
-
+        
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,215,0,0.2);
-            font-size: 0.9rem;
-            color: #d6c8b8;
-            font-weight: 300;
+            border-top: 1px solid #444;
+            font-size: 1rem;
+            color: #aaa;
             letter-spacing: 0.5px;
         }
-
-        .copyright::before {
-            content: '❦';
-            margin-right: 8px;
-            font-size: 1.3rem;
-            color: #ffd700;
-        }
-
-        .copyright::after {
-            content: '❦';
-            margin-left: 8px;
-            font-size: 1.3rem;
-            color: #ffd700;
-        }
-
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
+            0% { transform: scale(1); }
             50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        
         /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 { font-size: 2.8rem; }
-            .subtitle { font-size: 1.2rem; }
-            .section-title { font-size: 2.2rem; }
-            .timer { font-size: 2.4rem; }
-            .exam-button { padding: 16px 45px; font-size: 1.2rem; }
-            .iframe-container iframe { height: 550px; }
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .class-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .class-btn {
+                width: 80%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .iframe-container iframe {
+                height: 550px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.4rem; }
-            .subtitle { font-size: 1.1rem; }
-            .timer { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-            .exam-button { padding: 14px 40px; font-size: 1.1rem; }
-            .iframe-container iframe { height: 500px; }
-            .class-buttons { flex-direction: column; align-items: center; }
-            .class-btn { width: 80%; margin: 8px 0; }
-            .footer-content { flex-direction: column; align-items: center; text-align: center; }
-            .footer-section { min-width: 300px; }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .subtitle { font-size: 1rem; }
-            .section-title { font-size: 1.8rem; }
-            .timer { font-size: 1.8rem; }
-            .exam-button { padding: 12px 35px; font-size: 1rem; }
-            .iframe-container iframe { height: 400px; }
-            .notice, .timer-container { padding: 15px; }
-            .footer-section h3 { font-size: 1.2rem; }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .timer {
+                font-size: 2rem;
+            }
+            
+            .exam-button {
+                padding: 15px 35px;
+                font-size: 1.1rem;
+            }
+            
+            .iframe-container iframe {
+                height: 450px;
+            }
+            
+            .school-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .school-logo img {
+                width: 75px;
+                height: 75px;
+            }
+            
+            .notice {
+                padding: 1.5rem;
+            }
+            
+            .notice h3 {
+                font-size: 1.3rem;
+            }
+            
+            .notice p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -593,13 +567,13 @@
         <div class="header-decoration"></div>
         <div class="container header-content">
             <div class="school-logo">
-                <img src="https://i.ibb.co.com/mVgMJmDw/SMAN1-Bangorejo-emblem.png" alt="Logo SMA Negeri 1 Bangorejo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTIwIDEyMCI+PHJlY3QgeD0iMTUiIHk9IjE1IiB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2IzODZhYSIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSIzNSIgZmlsbD0iI2IzODZhYSIvPjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTUExPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="https://i.ibb.co.com/mVgMJmDw/SMAN1-Bangorejo-emblem.png" alt="Logo SMA Negeri 1 Bangorejo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2IzMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI2IzMDAwMCIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTUExPC90ZXh0Pjwvc3ZnPg=='">
             </div>
             <h1>Sumatif Tengah Semester Ganjil 2024/2025</h1>
-            <p class="subtitle">Mata Pelajaran Pendidikan Pancasila — SMA Negeri 1 Bangorejo</p>
+            <p class="subtitle">Mata Pelajaran Pendidikan Pancasila - SMA Negeri 1 Bangorejo</p>
         </div>
     </header>
-
+    
     <div class="class-nav">
         <div class="container">
             <div class="class-buttons">
@@ -608,14 +582,14 @@
             </div>
         </div>
     </div>
-
+    
     <main class="container exam-content">
         <div id="class-x" class="class-section active">
             <h2 class="section-title">Soal Sumatif Kelas X</h2>
             
             <div class="timer-container">
                 <div class="timer-title">Waktu Tersisa:</div>
-                <div class="timer" id="timer-x">01:00</div>
+                <div class="timer" id="timer-x">90:00</div>
                 <div class="timer-warning">Formulir akan terkirim otomatis ketika waktu habis</div>
             </div>
             
@@ -627,15 +601,15 @@
             
             <div class="notice">
                 <h3>Petunjuk Pengerjaan</h3>
-                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 1 menit (simulasi). Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai. Semoga sukses dalam menjalani ujian ini dengan integritas dan kejujuran sebagai cerminan nilai-nilai Pancasila.</p>
+                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 90 menit. Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai.</p>
             </div>
             
             <div class="iframe-container">
                 <iframe id="form-iframe-x" style="display:none;" src="about:blank"></iframe>
-                <div id="form-placeholder-x" class="form-placeholder">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <h3>Klik tombol "Mulai Ujian" untuk memulai</h3>
-                    <p>Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas.</p>
+                <div id="form-placeholder-x" style="text-align:center; padding: 50px 20px;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 60px; color: #b30000; margin-bottom: 25px;"></i>
+                    <h3 style="color: #b30000; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Klik tombol "Mulai Ujian" untuk memulai</h3>
+                    <p style="font-size: 1.1rem;">Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas</p>
                 </div>
             </div>
         </div>
@@ -645,7 +619,7 @@
             
             <div class="timer-container">
                 <div class="timer-title">Waktu Tersisa:</div>
-                <div class="timer" id="timer-xi">01:00</div>
+                <div class="timer" id="timer-xi">90:00</div>
                 <div class="timer-warning">Formulir akan terkirim otomatis ketika waktu habis</div>
             </div>
             
@@ -657,20 +631,20 @@
             
             <div class="notice">
                 <h3>Petunjuk Pengerjaan</h3>
-                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 1 menit (simulasi). Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai. Kepatuhan terhadap aturan dan kejujuran adalah bentuk pengamalan nilai-nilai Pancasila dalam kehidupan akademik.</p>
+                <p>Isilah soal-soal berikut dengan jawaban yang benar dan tepat. Waktu pengerjaan adalah 90 menit. Formulir akan terkirim otomatis ketika waktu habis. Pastikan Anda telah memahami materi sebelum memulai.</p>
             </div>
             
             <div class="iframe-container">
                 <iframe id="form-iframe-xi" style="display:none;" src="about:blank"></iframe>
-                <div id="form-placeholder-xi" class="form-placeholder">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <h3>Klik tombol "Mulai Ujian" untuk memulai</h3>
-                    <p>Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas.</p>
+                <div id="form-placeholder-xi" style="text-align:center; padding: 50px 20px;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 60px; color: #b30000; margin-bottom: 25px;"></i>
+                    <h3 style="color: #b30000; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Klik tombol "Mulai Ujian" untuk memulai</h3>
+                    <p style="font-size: 1.1rem;">Formulir ujian akan muncul setelah Anda menekan tombol "Mulai Ujian" di atas</p>
                 </div>
             </div>
         </div>
     </main>
-
+    
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -685,12 +659,12 @@
                 
                 <div class="footer-section">
                     <h3>Tentang Kami</h3>
-                    <p>SMA Negeri 1 Bangorejo adalah institusi pendidikan yang berkomitmen untuk mencetak generasi penerus bangsa yang berkarakter Pancasila, cerdas, dan berbudaya — dengan menghormati tradisi dan membuka jalan menuju masa depan.</p>
+                    <p>SMA Negeri 1 Bangorejo adalah institusi pendidikan yang berkomitmen untuk mencetak generasi penerus bangsa yang berkarakter Pancasila, cerdas, dan berbudaya.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Pendidikan Pancasila</h3>
-                    <p>Mata pelajaran yang membentuk karakter siswa berdasarkan nilai-nilai luhur Pancasila sebagai dasar negara dan pandangan hidup bangsa Indonesia — menjadikan kejujuran, keadilan, dan gotong royong sebagai fondasi pembelajaran sejati.</p>
+                    <p>Mata pelajaran yang membentuk karakter siswa berdasarkan nilai-nilai Pancasila sebagai dasar negara dan pandangan hidup bangsa Indonesia.</p>
                 </div>
             </div>
             
@@ -703,8 +677,8 @@
     <script>
         // Variables untuk timer
         let timerIntervalX, timerIntervalXI;
-        let timeLeftX = 60; // 1 menit dalam detik
-        let timeLeftXI = 60; // 1 menit dalam detik
+        let timeLeftX = 5400; // 90 menit dalam detik
+        let timeLeftXI = 5400; // 90 menit dalam detik
         let examStartedX = false;
         let examStartedXI = false;
         
@@ -714,12 +688,15 @@
         
         // Fungsi untuk menampilkan kelas yang dipilih
         function showClass(className) {
+            // Sembunyikan semua section
             document.querySelectorAll('.class-section').forEach(section => {
                 section.classList.remove('active');
             });
             
+            // Tampilkan section yang dipilih
             document.getElementById(className).classList.add('active');
             
+            // Update tombol aktif
             document.querySelectorAll('.class-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -730,18 +707,22 @@
         // Fungsi untuk memulai ujian
         function startExam(classType) {
             if (classType === 'x' && !examStartedX) {
+                // Load formulir Kelas X
                 document.getElementById('form-iframe-x').src = formUrlX;
                 document.getElementById('form-iframe-x').style.display = 'block';
                 document.getElementById('form-placeholder-x').style.display = 'none';
                 
+                // Mulai timer
                 startTimer('x');
                 examStartedX = true;
             } 
             else if (classType === 'xi' && !examStartedXI) {
+                // Load formulir Kelas XI
                 document.getElementById('form-iframe-xi').src = formUrlXI;
                 document.getElementById('form-iframe-xi').style.display = 'block';
                 document.getElementById('form-placeholder-xi').style.display = 'none';
                 
+                // Mulai timer
                 startTimer('xi');
                 examStartedXI = true;
             }
@@ -749,29 +730,38 @@
         
         // Fungsi untuk memulai timer
         function startTimer(classType) {
+            // Hentikan timer sebelumnya jika ada
             if (classType === 'x' && timerIntervalX) clearInterval(timerIntervalX);
             if (classType === 'xi' && timerIntervalXI) clearInterval(timerIntervalXI);
             
+            // Set waktu awal
             let timeLeft = classType === 'x' ? timeLeftX : timeLeftXI;
             updateTimerDisplay(classType, timeLeft);
             
+            // Buat interval timer
             const timerInterval = setInterval(() => {
                 timeLeft--;
                 
+                // Update waktu yang tersisa
                 if (classType === 'x') {
                     timeLeftX = timeLeft;
                 } else {
                     timeLeftXI = timeLeft;
                 }
                 
+                // Update tampilan
                 updateTimerDisplay(classType, timeLeft);
                 
+                // Jika waktu habis
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
-                    alert(`Waktu pengerjaan untuk Kelas ${classType.toUpperCase()} telah habis! Formulir akan dikirim secara otomatis.`);
+                    alert(`Waktu pengerjaan untuk Kelas ${classType.toUpperCase()} telah habis! Formulir akan dikirim.`);
+                    // Di sini bisa ditambahkan kode untuk mengirim formulir otomatis
+                    // Namun karena iframe dari domain berbeda, kita tidak bisa mengontrolnya secara langsung
                 }
             }, 1000);
             
+            // Simpan interval ID
             if (classType === 'x') {
                 timerIntervalX = timerInterval;
             } else {
@@ -788,12 +778,13 @@
             if (timerElement) {
                 timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                 
-                if (timeLeft <= 10) {
+                // Ubah warna menjadi merah ketika waktu hampir habis
+                if (timeLeft <= 300) { // 5 menit terakhir
                     timerElement.style.color = '#ff0000';
-                    timerElement.style.textShadow = '0 0 10px rgba(255,0,0,0.5)';
+                    timerElement.style.animation = 'pulse 1s infinite';
                 } else {
-                    timerElement.style.color = '#7b3f00';
-                    timerElement.style.textShadow = '0 2px 6px rgba(0,0,0,0.1)';
+                    timerElement.style.color = '#8b0000';
+                    timerElement.style.animation = 'none';
                 }
             }
         }
