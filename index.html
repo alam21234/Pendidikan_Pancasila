@@ -178,10 +178,16 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: all 0.6s ease;
+            z-index: 1;
         }
         
         .class-btn:hover::before {
             left: 100%;
+        }
+        
+        .class-btn span {
+            position: relative;
+            z-index: 2;
         }
         
         .class-btn.active {
@@ -393,6 +399,52 @@
             line-height: 1.7;
         }
         
+        /* Social Media */
+        .social-media {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .social-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-icon.facebook:hover {
+            background: linear-gradient(45deg, #3b5998, #3b5998);
+        }
+        
         /* Footer */
         footer {
             background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
@@ -457,6 +509,23 @@
             width: 25px;
         }
         
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 2rem;
@@ -510,6 +579,10 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .social-icons {
+                flex-wrap: wrap;
+            }
         }
         
         @media (max-width: 600px) {
@@ -559,6 +632,12 @@
             .notice p {
                 font-size: 1rem;
             }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -567,7 +646,7 @@
         <div class="header-decoration"></div>
         <div class="container header-content">
             <div class="school-logo">
-                <img src="https://i.ibb.co.com/mVgMJmDw/SMAN1-Bangorejo-emblem.png" alt="Logo SMA Negeri 1 Bangorejo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2IzMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI2IzMDAwMCIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTUExPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="https://i.ibb.co.com/mVgMJmDw/SMAN1-Bangorejo-emblem.png" alt="Logo SMA Negeri 1 Bangorejo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2IzMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI2IzMDAwMCIvPjx0ZXh0IHg�IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTUExPC90ZXh0Pjwvc3ZnPg=='">
             </div>
             <h1>Sumatif Tengah Semester Ganjil 2024/2025</h1>
             <p class="subtitle">Mata Pelajaran Pendidikan Pancasila - SMA Negeri 1 Bangorejo</p>
@@ -577,8 +656,8 @@
     <div class="class-nav">
         <div class="container">
             <div class="class-buttons">
-                <button class="class-btn active" onclick="showClass('class-x')">Kelas X</button>
-                <button class="class-btn" onclick="showClass('class-xi')">Kelas XI</button>
+                <button class="class-btn active" onclick="showClass('class-x')"><span>Kelas X</span></button>
+                <button class="class-btn" onclick="showClass('class-xi')"><span>Kelas XI</span></button>
             </div>
         </div>
     </div>
@@ -643,6 +722,19 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h3 class="social-title">Ikuti Kami di Media Sosial</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/osis.smango/?hl=id" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/smanegeri1bangorejo/?locale=id_ID" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
     </main>
     
     <footer>
@@ -654,6 +746,10 @@
                         <p><i class="fas fa-map-marker-alt"></i> Jln. Bhayangkara 67 Kebondalem - Bangorejo, Banyuwangi, Jawa Timur, Indonesia 68487</p>
                         <p><i class="fas fa-phone"></i> (0333) 713297</p>
                         <p><i class="fas fa-envelope"></i> smanegeri1_bangorejo@schoolmail.com</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/osis.smango/?hl=id" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/smanegeri1bangorejo/?locale=id_ID" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
                 
